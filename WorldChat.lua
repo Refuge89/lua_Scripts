@@ -4,14 +4,13 @@ print(">>  loadind  Wolrd Chating.lua")
 local SAY=" "--普通聊天
 local WSAY="sj"
 
-local ItemEntry=70008 --用于使用后查看积分并兑换的物品entry。 ps 其实可以整合到什么超级炉石那里的，所选用的物品必须带技能的能使用的。
 local jf_entry=70002 --代表积分的物品可以叫某某货币之类的,本来想直接加在数据库值然后读取的 不过兑换东西的时候太麻烦，所以还是做成了物品容易用于兑换。
 local jf_mins=10 --设置每多少分钟得到1点积分。
 local QuestCount=nil
-local questPCH=2.5
+local questPCH=2.8
 
 local KillCount=nil
-local killPCH=0.008
+local killPCH=0.016
 
 local mins=nil
 local jf=nil	
@@ -162,7 +161,6 @@ end
 
 
 local function PlayerOnChat(event, player, msg, Type, lang)--世界聊天
-
 	local head=string.format("[世]|cFFF08000%s|r说:",GetPlayerInfo(player))
 	if(msg=="#buff")then
 	    player:AddAura(48074, player)
@@ -182,7 +180,6 @@ local function PlayerOnChat(event, player, msg, Type, lang)--世界聊天
 		local sSAY = string.gsub(msg, WSAY, "")
 		SendWorldMessage(string.format("%s|cFFFFFFFF%s|r",head,sSAY))
 		return false
-
 	end	
 end
 
